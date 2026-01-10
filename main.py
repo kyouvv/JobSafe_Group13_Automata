@@ -1,16 +1,12 @@
-# Assuming you have SymbolMapper and PDAValidator classes defined above or imported
-# from symbol_mapper import SymbolMapper
-# from pda_validator import PDAValidator
-
 from symbol_mapper import SymbolMapper
 from pda_validator import PDAValidator
 
 def main():
-    # 1. Initialize System
+    
     mapper = SymbolMapper()
     pda = PDAValidator()
 
-    # 2. Input Data (A "Perfect" Contract Example)
+   #raw text testing
     raw_contract_text = """
     KNOW ALL MEN BY THESE PRESENTS:
 This Contract of Employment is entered into by the Company and the Employee.
@@ -53,11 +49,11 @@ Signed: ____________________
     
     print(f"\nFinal Token Stream: {token_stream}")
 
-    # 3. Validate
+  
     print("\n--- STEP 2: PDA VALIDATION ---")
     is_valid, log = pda.validate(token_stream)
 
-    # 4. Output Results
+ #results
     print("\n" + "="*30)
     if is_valid:
         print("RESULT: CONTRACT ACCEPTED (Valid Structure)")
