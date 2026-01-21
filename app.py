@@ -135,6 +135,12 @@ if uploaded_file is not None:
         st.success("## ✅ CONTRACT ACCEPTED")
         st.markdown("The contract follows a valid structural sequence and all dependencies are resolved.")
         st.balloons()
+        for entry in log:
+            if "REJECT" in entry:
+                error_msg = entry
+        with st.expander("🔍 View Full Debug Log"):
+            for entry in log:
+                st.code(entry, language="text")
     else:
         st.error("## ❌ CONTRACT REJECTED")
         st.markdown("The contract structure is invalid.")
